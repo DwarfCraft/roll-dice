@@ -32,11 +32,48 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,
                     message: 'Pong!'
                 });
+            break;
             case 'roll':
-			bot.sendMssage({
-				to: channelID, 
-				message: Math.floor(Math.random() * 20) + 1)
-			});
+                bot.sendMessage({
+                    to: channelID, 
+                    message: Math.floor(Math.random() * 20) + 1
+                });
+            break;
+            case '4':
+                bot.sendMessage({
+                    to: channelID, 
+                    message: Math.floor(Math.random() * 4) + 1
+                });
+            break;
+            case '6':
+                bot.sendMessage({
+                    to: channelID, 
+                    message: Math.floor(Math.random() * 6) + 1
+                });
+            break;
+            case '8':
+                bot.sendMessage({
+                    to: channelID, 
+                    message: Math.floor(Math.random() * 8) + 1
+                });
+            break;
+            case '12':
+                bot.sendMessage({
+                    to: channelID, 
+                    message: Math.floor(Math.random() * 12) + 1
+                });
+            break;
+            case '20':
+                bot.sendMessage({
+                    to: channelID, 
+                    message: Math.floor(Math.random() * 20) + 1
+                });
+            break;
+            case '100':
+                bot.sendMessage({
+                    to: channelID, 
+                    message: Math.floor(Math.random() * 100) + 1
+                });
             break;
             // Just add any case commands if you want to..
          }
