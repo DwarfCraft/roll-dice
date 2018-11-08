@@ -57,6 +57,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: Math.floor(Math.random() * 8) + 1
                 });
             break;
+            case '10':
+                bot.sendMessage({
+                    to: channelID, 
+                    message: Math.floor(Math.random() * 10) + 1
+                });
+            break;
             case '12':
                 bot.sendMessage({
                     to: channelID, 
