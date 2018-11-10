@@ -25,14 +25,21 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var cmd = args[0];
        
         args = args.splice(1);
+		var re = new RegExp("\d+[dD]\d+");
 		if (Number.isInteger(cmd)) {
 	    	bot.sendMessage({
 				to: channelID,
 				message: Math.floor(Math.random() * cmd) + 1
 			});
 		}
-		else {
-			
+		else if (cmd.match(/\d+[dD]\d+/)) {
+			diceArray = cmd.split(new RegExp("[dD]"));
+			for (var i = 0; i < diceArray[0]; i++) {
+				bot.sendMessage({
+					to: channelID,
+					message: Math.floor(Math.random() * diceArray[1]) + 1
+				});
+			}
 		}
         switch(cmd) {
             // !ping
@@ -90,12 +97,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: Math.floor(Math.random() * 100) + 1
                 });
             break;
-	    default:
-		bot.sendMessage({
-		    to: channelID,
-		    message: Math.floor(Math.random() * cmd) + 1
-		});
-	    break;
             // Just add any case commands if you want to..
          }
      }
