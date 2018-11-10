@@ -25,6 +25,15 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var cmd = args[0];
        
         args = args.splice(1);
+		if (Number.isInteger(cmd)) {
+	    	bot.sendMessage({
+				to: channelID,
+				message: Math.floor(Math.random() * cmd) + 1
+			});
+		}
+		else {
+			
+		}
         switch(cmd) {
             // !ping
             case 'ping':
@@ -81,6 +90,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: Math.floor(Math.random() * 100) + 1
                 });
             break;
+	    default:
+		bot.sendMessage({
+		    to: channelID,
+		    message: Math.floor(Math.random() * cmd) + 1
+		});
+	    break;
             // Just add any case commands if you want to..
          }
      }
