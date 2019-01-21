@@ -3,6 +3,7 @@ from discord.ext import commands
 import random
 import configparser
 import json
+import time
 
 config = configparser.ConfigParser()
 config.read('pybot.ini')
@@ -46,6 +47,10 @@ async def pogo(poke_to_find : str):
         for p in json_data:
             if (search(str(poke_to_find), p['name'])):
                 await bot.say("Found: " + str(p['name']))
+                await bot.say("- Max CP: " + str(p['maxCP']))
+                for poke_type in p['types']:
+                    await bot.say("--- Type: " + str(poke_type['name']))
+                time.sleep(0.5)
 
 def search(search : str, pokemon : str):
     if search.lower() in pokemon.lower():
