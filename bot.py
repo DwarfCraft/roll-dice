@@ -41,6 +41,13 @@ async def roll(die : int):
     await bot.say("You rolled a: " + str(result))
 
 @bot.command()
+async def r(die : str):
+    (num,dice) = die.split("d")
+    for i in range(int(num)):
+        result = random.randint(1, int(dice))
+        await bot.say("You rolled a: " + str(result))
+
+@bot.command()
 async def pogo(poke_to_find : str):
     with open(pokemon_file, 'r') as f:
         json_data = json.load(f)

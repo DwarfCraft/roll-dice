@@ -1,6 +1,7 @@
 import random
 import configparser
 import json
+import re
 
 config = configparser.ConfigParser()
 config.read('pybot.ini')
@@ -15,6 +16,14 @@ description = '''ninjaBot in Python'''
 def add(left : int, right : int):
     """Adds two numbers together."""
     print(left + right)
+
+def r(die : str):
+    (num,dice) = die.split("d")
+    print(num)
+    print(dice)
+    for i in range(int(num)):
+        result = random.randint(1, int(dice))
+        print("You rolled a: " + str(result))
 
 def roll(die : int):
     result = random.randint(1, die)
@@ -35,5 +44,6 @@ def search(search : str, pokemon : str):
 
 
 roll(20)
-load_pokemon()
+r("3d6")
+#load_pokemon()
 
