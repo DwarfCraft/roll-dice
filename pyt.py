@@ -8,14 +8,14 @@ config.read('pybot.ini')
 
 pokemon_file = 'pokemon.json'
 json_data = {}
+
+wish_list = 'wish.json'
+wish_data = {}
+
 TOKEN = config['dnd']['token']
 
 description = '''ninjaBot in Python'''
 #bot = commands.Bot(command_prefix='?', description=description)
-
-def add(left : int, right : int):
-    """Adds two numbers together."""
-    print(left + right)
 
 def r(die : str):
     (num,dice) = die.split("d")
@@ -42,8 +42,48 @@ def search(search : str, pokemon : str):
     else:
         return False
 
+def read_file(file_name : str):
+    with open(file_name, 'r') as input_file:
+        file_data = json.load(input_file)
+    return file_data
 
-roll(20)
-r("3d6")
+def add(item : str, what : str):
+    wish_data = read_file(wish_list)
+    if not item in wish_data:
+        print("Not found: " + item)
+        wish_data[item] = {}
+    data = {'name': what}
+    if not 'want' in wish_data[item]:
+        print("Not in list: ")
+        wish_data[item]['want'] = []
+    item_present = False
+    for wish_item in wish_data[item]['want']:
+        print(wish_item)
+        if what in wish_item['name']:
+           item_present = True
+           print("Found: " + what)
+        else:
+           print("Not present: " + what)
+    if not (item_present):
+       wish_data[item]['want'].append(dict(name=what)) 
+       print("Adding to wishlist: " + what)
+
+    with open(wish_list, 'w') as outfile:
+        json.dump(wish_data, outfile)        
+
+def show(who):
+    item_data = read_file(wish_list)
+    print(item_data)
+    for item in item_data[who]['want']:
+        print('Want:' + item['name'])
+
+### Testing Area
+who = "kal"
+what = ['squirtle', 'dialga', 'shuckle']
+for item in what:
+    add(who, item)
+show(who)
+#roll(20)
+#r("3d6")
 #load_pokemon()
 
