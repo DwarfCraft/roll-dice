@@ -1,0 +1,10 @@
+{
+	"Race": ["Human", "Elf", "Dwarf"],
+	"Gender": ["Male", "Female"],
+	"Job": ["Merchant", "Priest", "Scholar", "Alchemist", "Soldier"],
+	"Alignment": ["Good", "Evil"],
+	"FirstName": ["Malia", "Altes", "Athet", "Thughye", "Eadwheald", "Gifu", "Alter", "Enbehrt"],
+	"LastName": ["Skesell", "Bexle", "Rysav"]
+}
+
+
