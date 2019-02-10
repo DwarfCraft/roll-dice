@@ -17,7 +17,7 @@ def index():
 
 @app.route('/dnd/<kind>')
 def dnd(kind):
-    with open(data_file, 'r') as f:
+    with open(os.path.join(app.root_path, data_file), 'r') as f:
         json_data = json.load(f)
         race = random.choice(json_data["Race"])
         gender = random.choice(json_data["Gender"])
@@ -25,7 +25,8 @@ def dnd(kind):
         alignment = random.choice(json_data["Alignment"])
         first_name = random.choice(json_data["FirstName"])
         last_name = random.choice(json_data["LastName"])
-        return render_template('dnd.html', race=race, gender=gender, job=job, first_name=first_name, last_name=last_name, alignment=alignment)
+        tavern = random.choice(json_data["Tavern"])
+        return render_template('dnd.html', race=race, gender=gender, job=job, first_name=first_name, last_name=last_name, alignment=alignment, tavern=tavern)
 
 @app.route('/hello/<name>')
 def hello(name):

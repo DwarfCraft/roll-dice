@@ -1,10 +1,11 @@
 {
-	"Race": ["Human", "Elf", "Dwarf"],
+	"Race": ["Human", "Elf", "Dwarf", "Dragonborn", "Teifling", "Half Elf", "Halfling", "Gnomie"],
 	"Gender": ["Male", "Female"],
 	"Job": ["Merchant", "Priest", "Scholar", "Alchemist", "Soldier"],
 	"Alignment": ["Good", "Evil"],
 	"FirstName": ["Malia", "Altes", "Athet", "Thughye", "Eadwheald", "Gifu", "Alter", "Enbehrt"],
-	"LastName": ["Skesell", "Bexle", "Rysav"]
+	"LastName": ["Skesell", "Bexle", "Rysav"],
+	"Tavern": ["The Laughing Boar", "Hopping Horse", "Happy Mug"]
 }
 
 
