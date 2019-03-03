@@ -1,12 +1,40 @@
 <html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<head>
 		<link rel="stylesheet" href='/static/style.css'>
 	</head>
 	<body>
+<ul class="topnav">
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#npc">NPC</a></li>
+  <li><a href="#tavern">Tavern</a></li>
+  <li><a href="#location">Location</a></li>
+  <li><a href="#treasure">Treasure</a></li>
+  <li><a href="#villian">Villian</a></li>
+  <li class="right"><a href="#load">Load</a></li>
+</ul>
 		<h1>My Website</h1>
 		<h2>
-			<a href="dnd/human">Human</a>
+			<a href="dnd/tavern">Tavern</a>
+			<a href="dnd/npc">NPC</a>
 		</h2>
+
+		<div id="npc">
+			<h2>NPC</h2>
+			<h1>{{first_name}} {{last_name}} is a {{gender}} {{race}} of {{alignment}} alignment that works as a {{job}}!</h1>
+			<br/>
+		</div>
+		<div id="tavern">
+			<h2>Tavern</h2>
+			<h1>{{tavern}}</h1>
+		</div>
+		
+		<script>
+function showToggle() {
+    var x = documnt.getElementById("{{ divToShow }}");
+    x.style.display = "block";
+}
+		</script>
 	</body>
 </html>
 

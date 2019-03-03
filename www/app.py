@@ -17,16 +17,26 @@ def index():
 
 @app.route('/dnd/<kind>')
 def dnd(kind):
-    with open(os.path.join(app.root_path, data_file), 'r') as f:
-        json_data = json.load(f)
-        race = random.choice(json_data["Race"])
-        gender = random.choice(json_data["Gender"])
-        job = random.choice(json_data["Job"])
-        alignment = random.choice(json_data["Alignment"])
-        first_name = random.choice(json_data["FirstName"])
-        last_name = random.choice(json_data["LastName"])
-        tavern = random.choice(json_data["Tavern"])
-        return render_template('dnd.html', race=race, gender=gender, job=job, first_name=first_name, last_name=last_name, alignment=alignment, tavern=tavern)
+    if (kind == "tavern"):
+        with open(os.path.join(app.root_path, data_file), 'r') as f:
+            json_data = json.load(f)
+            tavern = random.choice(json_data["Tavern"])
+            divToShow = "tavern"
+            return render_template('dnd.html', tavern=tavern, divToShow=divToShow)
+    elif (kind == "npc"):
+
+        with open(os.path.join(app.root_path, data_file), 'r') as f:
+            json_data = json.load(f)
+            race = random.choice(json_data["Race"])
+            gender = random.choice(json_data["Gender"])
+            job = random.choice(json_data["Job"])
+            alignment = random.choice(json_data["Alignment"])
+            first_name = random.choice(json_data["FirstName"])
+            last_name = random.choice(json_data["LastName"])
+            divToShow = "npc"
+            return render_template('dnd.html', race=race, gender=gender, job=job, first_name=first_name, last_name=last_name, alignment=alignment, divToShow=divToShow)
+    else:
+        print("Invalid Option")
 
 @app.route('/hello/<name>')
 def hello(name):

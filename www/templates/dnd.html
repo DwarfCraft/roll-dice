@@ -1,19 +1,35 @@
+<!DOCTYPE html>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel="stylesheet" href='/static/style.css'>
 	</head>
-	<body>
+	<body onload="showToggle()">
+		<div id="header">
+			<ul class="topnav">
+				<li><a class="active" href="#home">Home</a></li>
+				<li><a href="#npc">NPC</a></li>
+			</ul>
+		</div>
+
+		<div id="npc">
 		<h2>NPC:</h2>
 		<h1>{{first_name}} {{last_name}} is a {{gender}} {{race}} of {{alignment}} alignment that works as a {{job}}!</h1>
 		<br/>
+		</div>
+		<div id="tavern">
 		<h2>Tavern Name:</h2>
 		<h1>{{tavern}}</h1>
-
+		</div>
 		<button onclick="goBack()">Back</button>
 
 		<script> 
 function goBack() {
 	window.history.back();
+}
+function showToggle() {
+	var x = document.getElementById("{{ divToShow }}");
+	x.style.display = "block";
 }
 		</script>
 
